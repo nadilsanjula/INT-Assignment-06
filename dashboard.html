@@ -1,42 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="dashboard.css" />
 
-    <link rel="stylesheet" href="./global.css" />
-    <link rel="stylesheet" href="./dashboard.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap"
-    />
-  </head>
-  <body>
-    <div class="dashboard">
-      <div class="dashboard-inner">
-        <div class="rectangle-parent20">
-          <div class="frame-child41"></div>
-          <b class="customer-form2">Customer Form</b>
-        </div>
-      </div>
-      <div class="frame-parent15">
-        <div class="line-wrapper7">
-          <div class="frame-child42"></div>
-        </div>
-        <div class="frame-wrapper8">
-          <div class="rectangle-parent21">
-            <div class="frame-child43"></div>
-            <b class="item-form2">Item Form</b>
-          </div>
-        </div>
-        <div class="frame-child44"></div>
-      </div>
-      <div class="dashboard-child">
-        <div class="rectangle-parent22">
-          <div class="frame-child45"></div>
-          <b class="order-form1">Order Form</b>
-        </div>
-      </div>
-    </div>
-  </body>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .dashboard {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .dashboard-inner {
+      display: flex;
+      gap: 20px;
+    }
+
+    .dashboard-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 180px;
+      height: 120px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: #333333;
+    }
+
+    .dashboard-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .dashboard-button i {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .dashboard-button span {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<div class="dashboard">
+  <div class="dashboard-inner">
+    <a href="customer-form.html" class="dashboard-button">
+      <i class="fas fa-users"></i>
+      <span>Customer Form</span>
+    </a>
+
+    <a href="item-form.html" class="dashboard-button">
+      <i class="fas fa-cube"></i>
+      <span>Item Form</span>
+    </a>
+
+    <a href="order-form.html" class="dashboard-button">
+      <i class="fas fa-shopping-cart"></i>
+      <span>Order Form</span>
+    </a>
+  </div>
+</div>
+</body>
 </html>
