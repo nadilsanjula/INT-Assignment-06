@@ -11,64 +11,68 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      margin: 0;
       min-height: 100vh;
       background-color: #f3f4f6;
-      position: relative; /* Make body a positioning context */
     }
 
-    .order-form {
+    /* Navigation bar styles */
+    .nav-bar {
+      background-color: #7e57c2;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 30px;
+    }
+
+    .nav-link {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #673ab7;
+    }
+
+    .nav-link.active {
+      color: #000000;
+    }
+
+    /* Form container styles */
+    .form-container {
+      max-width: 800px;
+      width: 90%;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
       background-color: #ffffff;
-      padding: 30px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 800px;
-      box-sizing: border-box;
-      position: relative; /* Ensure form container is positioned relative */
     }
 
-    .order-form h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
-      color: #333333;
-    }
-
-    .form-group {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
+    /* Input and button styles */
+    label {
       font-weight: bold;
-      margin-right: 10px;
-      width: 120px;
+      display: block;
       color: #7e57c2;
+      margin-bottom: 8px;
     }
 
-    .form-group input {
-      flex: 1;
+    input, button {
+      width: 100%;
       padding: 10px;
       border-radius: 4px;
       border: 1px solid #ddd;
-    }
-
-    .button-group {
-      display: flex;
-      gap: 10px;
-      justify-content: space-between;
+      box-sizing: border-box;
+      margin-bottom: 12px;
     }
 
     button {
       background-color: #7e57c2;
       color: white;
       border: none;
-      padding: 12px 20px;
       border-radius: 4px;
       cursor: pointer;
       transition: background-color 0.3s ease;
@@ -78,14 +82,15 @@
       background-color: #673ab7;
     }
 
+    /* Table styles */
     table {
       width: 100%;
-      margin-top: 30px;
       border-collapse: collapse;
+      margin-top: 30px;
     }
 
     th, td {
-      padding: 12px;
+      padding: 15px;
       text-align: left;
       border-bottom: 1px solid #ddd;
     }
@@ -95,143 +100,158 @@
       color: white;
     }
 
-    tbody tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
     td {
       background-color: #ffffff;
       color: #444;
     }
 
-    .action-button {
-      background-color: #7e57c2;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
     }
-
-    .action-button:hover {
-      background-color: #673ab7;
-    }
-
-    /* Position the buttons */
-    .place-order-button {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-    }
-
     .back-button {
       margin-top: 20px;
       display: flex;
       justify-content: flex-start;
     }
-
     .back-button button {
-      background-color: #d32f2f; /* Red color */
-      color: white; /* Text color */
-      border: none;
-      padding: 12px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+      background-color: #d32f2f;
     }
-
     .back-button button:hover {
-      background-color: #b71c1c; /* Darker red on hover */
+      background-color: #b71c1c;
     }
 
+    @media screen and (max-width: 320px) {
+      /* Mobile Small */
+      .form-container {
+        padding: 10px;
+      }
+    }
 
+    @media screen and (min-width: 321px) and (max-width: 375px) {
+      /* Mobile Medium */
+      .form-container {
+        padding: 15px;
+      }
+    }
 
+    @media screen and (min-width: 376px) and (max-width: 425px) {
+      /* Mobile Large */
+      .form-container {
+        padding: 20px;
+      }
+    }
+
+    @media screen and (min-width: 426px) and (max-width: 768px) {
+      /* Tablet */
+      .form-container {
+        padding: 30px;
+      }
+    }
+
+    @media screen and (min-width: 769px) and (max-width: 1024px) {
+      /* Laptop */
+      .form-container {
+        padding: 40px;
+      }
+    }
+
+    @media screen and (min-width: 1025px) and (max-width: 1440px) {
+      /* Laptop Large */
+      .form-container {
+        padding: 50px;
+      }
+    }
+
+    @media screen and (min-width: 1441px) {
+      /* PC / Larger Desktop */
+      .form-container {
+        padding: 60px;
+      }
+    }
   </style>
 
 </head>
 <body>
 
-<div class="order-form">
-  <h2>Order Form</h2>
-  <div class="form-group">
-    <label for="orderDate">Order Date :</label>
-    <input type="date" id="orderDate" name="orderDate" required>
-  </div>
-  <div class="form-group">
-    <label for="orderId">Order ID :</label>
-    <input type="text" id="orderId" name="orderId" placeholder="Enter Order ID" required>
-  </div>
-  <div class="form-group">
-    <label for="customerId">Customer ID :</label>
-    <input type="text" id="customerId" name="customerId" placeholder="Enter Customer ID" required>
-  </div>
-  <div class="form-group">
-    <label for="itemCode">Item Code :</label>
-    <input type="text" id="itemCode" name="itemCode" placeholder="Enter Item Code" required>
-  </div>
-  <div class="form-group">
-    <label for="itemName">Item Name :</label>
-    <input type="text" id="itemName" name="itemName" placeholder="Enter Item Name" required>
-  </div>
-  <div class="form-group">
-    <label for="unitPrice">Unit Price :</label>
-    <input type="text" id="unitPrice" name="unitPrice" placeholder="Enter Unit Price" required>
-  </div>
-  <div class="form-group">
-    <label for="quantity">Quantity :</label>
-    <input type="number" id="quantity" name="quantity" placeholder="Enter Quantity" required>
-  </div>
-  <div class="button-group">
-    <button type="button" onclick="addToCart()">Add To Cart</button>
-  </div>
+  <div class="form-container">
+    <div class="form">
+      <h2>Order Form</h2>
+      <div class="form-group">
+        <label for="orderDate">Order Date :</label>
+        <input type="date" id="orderDate" name="orderDate" required>
+      </div>
+      <div class="form-group">
+        <label for="orderId">Order ID :</label>
+        <input type="text" id="orderId" name="orderId" placeholder="Enter Order ID" required>
+      </div>
+      <div class="form-group">
+        <label for="customerId">Customer ID :</label>
+        <input type="text" id="customerId" name="customerId" placeholder="Enter Customer ID" required>
+      </div>
+      <div class="form-group">
+        <label for="itemCode">Item Code :</label>
+        <input type="text" id="itemCode" name="itemCode" placeholder="Enter Item Code" required>
+      </div>
+      <div class="form-group">
+        <label for="itemName">Item Name :</label>
+        <input type="text" id="itemName" name="itemName" placeholder="Enter Item Name" required>
+      </div>
+      <div class="form-group">
+        <label for="unitPrice">Unit Price :</label>
+        <input type="text" id="unitPrice" name="unitPrice" placeholder="Enter Unit Price" required>
+      </div>
+      <div class="form-group">
+        <label for="quantity1">Quantity :</label>
+        <input type="number" id="quantity1" name="quantity1" placeholder="Enter Quantity" required>
+      </div>
+      <div>
+        <button type="button" onclick="addToCart()">Add To Cart</button>
+      </div>
+      <table>
+        <thead>
+        <tr>
+          <th>Item Code</th>
+          <th>Item Name</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
 
-  <table>
-    <thead>
-    <tr>
-      <th>Item Code</th>
-      <th>Item Name</th>
-      <th>Unit Price</th>
-      <th>Quantity</th>
-      <th>Total</th>
-      <th>Action</th>
-    </tr>
+        <tr>
+          <td>2</td>
+          <td>Soap</td>
+          <td>180</td>
+          <td>2</td>
+          <td>360</td>
+          <td>Action</td>
+        </tr>
 
-    <tr>
-      <td>2</td>
-      <td>Soap</td>
-      <td>180</td>
-      <td>2</td>
-      <td>360</td>
-      <td>Action</td>
-    </tr>
+        <tr>
+          <td>2</td>
+          <td>Soap</td>
+          <td>180</td>
+          <td>2</td>
+          <td>360</td>
+          <td>Action</td>
+        </tr>
 
-    <tr>
-      <td>2</td>
-      <td>Soap</td>
-      <td>180</td>
-      <td>2</td>
-      <td>360</td>
-      <td>Action</td>
-    </tr>
-
-    <tr>
-      <td>2</td>
-      <td>Soap</td>
-      <td>180</td>
-      <td>2</td>
-      <td>360</td>
-      <td>Action</td>
-    </tr>
+        <tr>
+          <td>2</td>
+          <td>Soap</td>
+          <td>180</td>
+          <td>2</td>
+          <td>360</td>
+          <td>Action</td>
+        </tr>
 
 
-    </thead>
-    <tbody id="orderTableBody">
-    <!-- Table rows will be dynamically added here -->
-    </tbody>
-  </table>
-
-  <!-- Place Order and Back buttons -->
-  <button class="action-button place-order-button" onclick="placeOrder()">Place Order</button>
+        </thead>
+        <tbody id="orderTableBody">
+        <!-- Table rows will be dynamically added here -->
+        </tbody>
+      </table>
+      <button class="action-button place-order-button" onclick="placeOrder()">Place Order</button>
 
   <div class="back-button">
     <button onclick="goBack()">Back</button>
@@ -241,31 +261,7 @@
 </div>
 
 <script>
-  function addToCart() {
-    const itemCode = document.getElementById('itemCode').value;
-    const itemName = document.getElementById('itemName').value;
-    const unitPrice = document.getElementById('unitPrice').value;
-    const quantity = document.getElementById('quantity').value;
-    const total = unitPrice * quantity;
 
-    const tableBody = document.getElementById('orderTableBody');
-    const newRow = `
-      <tr>
-        <td>${itemCode}</td>
-        <td>${itemName}</td>
-        <td>${unitPrice}</td>
-        <td>${quantity}</td>
-        <td>${total}</td>
-        <td><button class="action-button">Remove</button></td>
-      </tr>
-    `;
-
-    tableBody.innerHTML += newRow;
-  }
-
-  function placeOrder() {
-    alert('Order placed successfully!');
-  }
 
   function goBack() {
     window.history.back();
